@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BugTracker</title>
+    <link rel="stylesheet" href="./src/css/login.css" />
+    <script src="./src/js/login.js" type="module" defer></script>
+    <script src="./env.js" type="module" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container vh-100">
+      <div class="row m-auto">
+        <div class="col-md-6 offset-md-3">
+          <div class="card my-5">
+            <form class="card-body cardbody-color p-lg-5" id="loginForm">
+              <div class="text-center">
+                <img
+                  src="https://img.freepik.com/vecteurs-libre/fusee-espace-couleur-rouge-isole-illustration-graphique_53876-8056.jpg?w=826&t=st=1666698346~exp=1666698946~hmac=0741bca0296c166ac52ef85431c0de5320d3d86c15b34fe6afca56cb89a0af93"
+                  class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                  width="200px"
+                  alt="profile"
+                />
+              </div>
+
+              <div class="mb-3">
+                <input
+                  autocomplete="username"
+                  type="text"
+                  class="form-control"
+                  name="Username"
+                  id="Username"
+                  aria-describedby="emailHelp"
+                  placeholder="User Name"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  autocomplete="current-password"
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                />
+              </div>
+              <div class="error text-danger mb-3"></div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-color px-5 mb-5 w-100">
+                  Login
+                </button>
+              </div>
+              <div id="emailHelp" class="form-text text-center mb-5 text-dark">
+                Not Registered?
+                <a href="/register.html" class="text-dark fw-bold">
+                  Create an Account</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
