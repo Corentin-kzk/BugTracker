@@ -3,7 +3,6 @@ import {getSessionStorage} from "./sessionStorage.service.js"
 
 export const isLoggin = () => {
   let IsLoggin = false;
-  console.log("🚀 ~ file: isLogin.service.js ~ line 10 ~ isLoggin ~ getSessionStorage", getSessionStorage().token)
   if (getSessionStorage().token) IsLoggin = true;
   return IsLoggin;
 };

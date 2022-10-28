@@ -61,7 +61,6 @@ const init = () => {
   addBug();
 };
 window.addEventListener("load", () => {
-  console.log("🚀 ~ file: index.js ~ line 65 ~ window.addEventListener ~ isLoggin", isLoggin())
   if (!isLoggin()) {
     MyCustomRouter("/login.html", false);
   } else init();

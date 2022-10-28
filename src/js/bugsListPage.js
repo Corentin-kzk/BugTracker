@@ -33,7 +33,7 @@ const cardCreator = (
     <div class="card text-center h-100" id="${id}">
             <div class="card-header">${title}</div>
             <div class="card-body d-flex justify-content-between flex-column h-100"  style=" min-height : 250px ">
-                <p class="card-text  overflow-scroll" style=" height : 200px " >${description}</p>
+                <p class="card-text  overflow-auto" style=" max-height : 200px " >${description}</p>
                 <div class="d-flex justify-content-space-aroud">
                 <select class="form-select" aria-label="Default select example" data-track-id="modify"  data-id="${id}" >
             <option value="0"  ${
