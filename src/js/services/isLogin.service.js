@@ -3,7 +3,8 @@ import {getSessionStorage} from "./sessionStorage.service.js"
 
 export const isLoggin = () => {
   let IsLoggin = false;
-  if (getSessionStorage()) IsLoggin = true;
+  console.log("🚀 ~ file: isLogin.service.js ~ line 10 ~ isLoggin ~ getSessionStorage", getSessionStorage().token)
+  if (getSessionStorage().token) IsLoggin = true;
   return IsLoggin;
 };
 
@@ -14,7 +15,7 @@ export const isLoggin = () => {
  */
 export const MyCustomRouter = (url = "/#", isSecureRoute = false) => {
   if (isSecureRoute) {
-    if (!isLoggin()) window.location.href = `${window.location.hostname}/login.html`;
-    else window.location.href = `${window.location.hostname}/${url}`;
-  } else window.location.href = `${window.location.hostname}${url}`;
+    if (!isLoggin()) window.location.href = `/login.html`;
+    else window.location.href = `${url}`;
+  } else window.location.href = `${url}`;
 };
