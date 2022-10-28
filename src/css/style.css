@@ -1,0 +1,14 @@
+.docked-at-corner__docker {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+
+    /* Center the content */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}

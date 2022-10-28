@@ -17,7 +17,7 @@ const init = () => {
         } else {
           setSessionStorage({
             token: isLogin.result.token,
-            id: isLogin.result.id,
+            userId: isLogin.result.id,
           });
           //check if the user is login
           MyCustomRouter("/index.html", true);

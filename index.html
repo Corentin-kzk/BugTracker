@@ -32,9 +32,53 @@
     <script src="./src/js/index.js" type="module" defer></script>
   </head>
   <body>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="row g-3" id="addBugForm">
+        <div class="modal-body">
+        <div class="mb-3"  >
+          <input class="form-control form-control-lg" name="title" type="text" placeholder="title">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">description</label>
+          <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" data-bs-dismiss="modal" value="Add New Task" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="DeleteModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     <div class="container-fluid vh-100">
       <div class="row flex-nowrap">
-        <div class="col-auto col-md-2 col-xl-2 px-sm-2 px-0 bg-dark">
+        <div class="col-2 col-md-2 col-xl-2 px-sm-2 px-0 bg-dark">
           <div
             class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
           >
@@ -69,130 +113,56 @@
                   data-bs-parent="#menu"
                 >
                   <li class="w-100">
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Item</span> 1
+                    <a href="/user/bugs.html" class="nav-link px-0">
+                      <span class="d-none d-sm-inline">Your Bugs</span> 
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Item</span> 2
+                    <a href="/bugs.html" class="nav-link px-0">
+                      <span class="d-none d-sm-inline">All Bugs</span> 
                     </a>
                   </li>
                 </ul>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-table"></i>
-                  <span class="ms-1 d-none d-sm-inline">Orders</span></a
-                >
-              </li>
-              <li>
-                <a
-                  href="#submenu2"
-                  data-bs-toggle="collapse"
-                  class="nav-link px-0 align-middle"
-                >
-                  <i class="fs-4 bi-bootstrap"></i>
-                  <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a
-                >
-                <ul
-                  class="collapse nav flex-column ms-1"
-                  id="submenu2"
-                  data-bs-parent="#menu"
-                >
-                  <li class="w-100">
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Item</span> 1</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Item</span> 2</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a
-                  href="#submenu3"
-                  data-bs-toggle="collapse"
-                  class="nav-link px-0 align-middle"
-                >
-                  <i class="fs-4 bi-grid"></i>
-                  <span class="ms-1 d-none d-sm-inline">Products</span>
-                </a>
-                <ul
-                  class="collapse nav flex-column ms-1"
-                  id="submenu3"
-                  data-bs-parent="#menu"
-                >
-                  <li class="w-100">
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Product</span> 1</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Product</span> 2</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Product</span> 3</a
-                    >
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Product</span> 4</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-people"></i>
-                  <span class="ms-1 d-none d-sm-inline">Customers</span>
-                </a>
               </li>
             </ul>
             <hr />
           </div>
         </div>
         <div class="col-10 col-md-10 col-xl-10 px-0">
-          <div class="p-3 bg-dark d-flex align-items-center flex-row-reverse">
-            <div class="dropdown pb-4">
-              <a
-                href="#"
-                class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                id="dropdownUser1"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  src="https://github.com/mdo.png"
-                  alt="hugenerd"
-                  width="30"
-                  height="30"
-                  class="rounded-circle"
-                />
-                <span class="d-none d-sm-inline mx-1">loser</span>
-              </a>
-              <ul
-                class="dropdown-menu dropdown-menu-dark text-small shadow"
-                aria-labelledby="dropdownUser1"
-              >
-                <li><a class="dropdown-item" id="newtask" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" id="logOut" href="#">Sign out</a></li>
-              </ul>
-            </div>
+          <div class="p-3 bg-dark d-flex align-items-center  align-content-center flex-row-reverse">
+            <div class="dropdown ms-auto">
+              <button class="btn btn-primary dropdown-toggle" id="dropdownUser1"
+              data-bs-toggle="dropdown"> <i class="bi bi-gear"></i> </button>
+              <span class="d-none d-sm-inline mx-1">Details</span>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark text-small shadow"
+              aria-labelledby="dropdownUser1"
+            >
+              <li>
+                <a
+                  class="dropdown-item"
+                  id="newtask"
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  >New task...</a
+                >
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item" id="logOut" href="#">Sign out</a>
+              </li>
+            </ul>
+          </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Add new bug <i class="bi bi-bug-fill"></i>
+            </button>
           </div>
           <div class="d-flex flex-row flex-wrap p-3">
-            <div class="accordion col-auto col-md-5 col-xl-5 " id="userBugs">
+            <div class="accordion col-12 col-md-5 col-xl-5 " id="userBugs">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -204,12 +174,12 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <th scope="col">ID</th>
-                          <th scope="col">Bugs</th>
-                          <th scope="col">Developpers Name</th>
-                          <th scope="col">Date</th>
-                          <th scope="col">Status</th>
-                          <th scope="col">Delete ?</th>
+                          <th scope="col"  class="text-center">ID</th>
+                          <th scope="col"  class="text-center">Bugs</th>
+                          <th scope="col"  class="text-center">Developpers Name</th>
+                          <th scope="col"  class="text-center">Date</th>
+                          <th scope="col"  class="text-center">Status</th>
+                          <th scope="col"  class="text-center">Delete ?</th>
                         </tr>
                       </thead>
                       <tbody id="userBugsList">
@@ -219,7 +189,7 @@
                 </div>
               </div>
             </div>
-            <div class="accordion col-auto offset-md-2 col-md-5 col-xl-5 " id="ping">
+            <div class="accordion col-12 pt-3 pt-md-0 offset-md-2 col-md-5 col-xl-5 " id="ping">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -228,7 +198,8 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#ping">
                   <div class="accordion-body" id="ping">
-
+                        <p id="pingBody"> 
+                        </p>
                     </table>
                   </div>
                 </div>
@@ -237,11 +208,11 @@
             <div class="accordion col-12 pt-3 mt-3" id="listBugs">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
                     Bugs list
                   </button>
                 </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#listBugs">
+                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#listBugs">
                   <div class="accordion-body table-responsive">
                     <table class="table">
                       <thead>

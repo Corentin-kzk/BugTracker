@@ -1,7 +1,13 @@
 import { getChangeBugState } from "./getUserData.service.js";
-
 export const changeState = (e) => {
-    console.log("🚀 ~ file: stateChanger.service.js ~ line 7 ~ changeState ~ e", e)
-    
-//   getChangeBugState({ token, id, newState });
+  const id = e.dataset.id;
+  e.addEventListener("change", (evt) => {
+    getChangeBugState(
+      {
+        id,
+        newState: evt.target.value,
+      },
+      { once: true }
+    );
+  });
 };

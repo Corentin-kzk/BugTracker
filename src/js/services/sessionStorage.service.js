@@ -6,7 +6,7 @@ export const setSessionStorage = (token) => {
 };
 export const getSessionStorage = () => {
   const token = JSON.parse(sessionStorage.getItem(USRTK));
-  return token;
+  return token || {};
 };
 
 export const removeSessionStorage = () => {

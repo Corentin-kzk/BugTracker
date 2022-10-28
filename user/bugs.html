@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BugTracker</title>
+    <link rel="stylesheet" href="../src/css/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="../src/js/bugsListPage.js" type="module" defer></script>
+    <script src="../env.js" type="module" defer></script>
+
+  </head>
+  <body>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form class="row g-3" id="addBugForm">
+        <div class="modal-body">
+        <div class="mb-3"  >
+          <input class="form-control form-control-lg" name="title" type="text" placeholder="title">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">description</label>
+          <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" data-bs-dismiss="modal" value="Add New Task" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+    <div class="container-fluid vh-100">
+      <div class="row flex-nowrap">
+        <div class="col-2 col-md-2 col-xl-2 px-sm-2 px-0 bg-dark">
+          <div
+            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+          >
+            <a
+              href="/"
+              class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+            >
+              <span class="fs-5 d-none d-sm-inline">Menu</span>
+            </a>
+            <ul
+              class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+              id="menu"
+            >
+              <li class="nav-item">
+                <a href="/index.html" class="nav-link align-middle px-0">
+                  <i class="fs-4 bi-house"></i>
+                  <span class="ms-1 d-none d-sm-inline">Home</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#submenu1"
+                  data-bs-toggle="collapse"
+                  class="nav-link px-0 align-middle"
+                >
+                  <i class="fs-4 bi-speedometer2"></i>
+                  <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                </a>
+                <ul
+                  class="collapse show nav flex-column ms-1"
+                  id="submenu1"
+                  data-bs-parent="#menu"
+                >
+                  <li class="w-100">
+                    <a href="/user/bugs.html" class="nav-link px-0">
+                      <span class="d-none d-sm-inline">Your Bugs</span> 
+                    </a>
+                  </li>
+                  <li>
+                    <a href="../bugs.html" class="nav-link px-0">
+                      <span class="d-none d-sm-inline">All Bugs</span> 
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr />
+          </div>
+        </div>
+        <div class="col-10 col-md-10 col-xl-10 px-0">
+            <div class="p-3 bg-dark d-flex align-items-center  align-content-center flex-row-reverse">
+                <div class="dropdown ms-auto">
+                    <button class="btn btn-primary dropdown-toggle" id="dropdownUser1"
+                    data-bs-toggle="dropdown"> <i class="bi bi-gear"></i> </button>
+                    <span class="d-none d-sm-inline mx-1">Details</span>
+                  </a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-dark text-small shadow"
+                    aria-labelledby="dropdownUser1"
+                  >
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        id="newtask"
+                        href="#"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                        >New task...</a
+                      >
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a class="dropdown-item" id="logOut" href="#">Sign out</a>
+                    </li>
+                  </ul>
+                </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  Add new bug <i class="bi bi-bug-fill"></i>
+                </button>
+              </div>
+              <div class="d-flex flex-row flex-wrap row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xxl-6" id="bugsList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

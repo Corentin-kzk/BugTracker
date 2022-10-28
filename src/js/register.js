@@ -22,7 +22,10 @@ const init = () => {
             const error = document.querySelector(".error");
             error.innerHTML = `<span>${isLogin.result.message}</span>`;
           } else {
-            setSessionStorage(isLogin.result.token);
+            setSessionStorage({
+              token: isLogin.result.token,
+              userId: isLogin.result.id,
+            });
             //check if the user is login
             MyCustomRouter("/index.html", true);
           }
