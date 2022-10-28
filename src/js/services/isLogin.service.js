@@ -14,7 +14,7 @@ export const isLoggin = () => {
  */
 export const MyCustomRouter = (url = "/#", isSecureRoute = false) => {
   if (isSecureRoute) {
-    if (!isLoggin()) window.location.href = `${URL}/login.html`;
+    if (!isLoggin()) window.location.href = `/login.html`;
     else window.location.href = `${URL}${url}`;
   } else window.location.href = `${URL}${url}`;
 };
