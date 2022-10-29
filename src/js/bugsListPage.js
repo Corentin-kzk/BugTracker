@@ -30,7 +30,7 @@ const cardCreator = (
   const date = timeConverter(timestamp);
   const card = `
   <div class="col p-1 p-sm-2 ">
-    <div class="card text-center h-100" id="${id}">
+    <article class="card text-center h-100" id="${id}">
             <div class="card-header">${title}</div>
             <div class="card-body d-flex justify-content-between flex-column h-100"  style=" min-height : 250px ">
                 <p class="card-text  overflow-auto" style=" max-height : 200px " >${description}</p>
@@ -49,8 +49,8 @@ const cardCreator = (
         " data-track-id="delete"></i></button>
                 </div>
             </div>
-            <div class="card-footer text-muted">${userName} create this task at ${date}</div>
-        </div>
+            <div class="card-footer text-muted">${userName}} create this task at ${date}</div>
+        </article>
     </div>`;
   return card;
 };

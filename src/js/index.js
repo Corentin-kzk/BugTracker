@@ -46,10 +46,11 @@ const addToFormBugs = async (htmlElement, isUniqueUser = false) => {
 
 const addPingStatus = () => {
   (async () => {
-    const pingStatus = await getPing();
-    return pingStatus;
+    const pingStatus = await getPing();  
+    const pingElment = document.querySelector('#pingBody');
+    pingElment.innerHTML = `server state is : status ${pingStatus.bugTracker.status} / version ${pingStatus.bugTracker.version}`
   })();
-  
+
 };
 
 const init = () => {
